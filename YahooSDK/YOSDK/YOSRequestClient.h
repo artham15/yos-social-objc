@@ -174,12 +174,12 @@
 /**
  * Called when an error prevents the request from completing successfully.
  */
-- (void)requestDidFailWithError:(YOSResponseData *)error;
+- (void)requestDidFailWithError:(YOSResponseData *)error request:(YOSRequestClient *)request;
 
 /**
  * Called when a request returns a response.
  */
-- (void)requestDidFinishLoading:(YOSResponseData *)result;
+- (void)requestDidFinishLoading:(YOSResponseData *)result request:(YOSRequestClient *)request;
 
 /**
  * Called when the request was cancelled.

@@ -253,8 +253,8 @@ static NSString *const kYOSUserAgentPrefix = @"YosCocoaSdk/0.5";
 	[serviceResponseData setError:error];
 	[serviceResponseData setDidSucceed:NO];
 	
-	if ([self.requestDelegate respondsToSelector:@selector(requestDidFailWithError:)]) {
-		[self.requestDelegate requestDidFailWithError:serviceResponseData];
+    if ([self.requestDelegate respondsToSelector:@selector(requestDidFailWithError:request:)]) {
+        [self.requestDelegate requestDidFailWithError:serviceResponseData request:self];
 	}
 }
 
@@ -263,8 +263,8 @@ static NSString *const kYOSUserAgentPrefix = @"YosCocoaSdk/0.5";
 	YOSResponseData *serviceResponseData = [YOSResponseData responseWithData:self.responseData 
 															  andURLResponse:self.response];
 	
-	if ([self.requestDelegate respondsToSelector:@selector(requestDidFinishLoading:)]) {
-		[self.requestDelegate requestDidFinishLoading:serviceResponseData];
+    if ([self.requestDelegate respondsToSelector:@selector(requestDidFinishLoading:request:)]) {
+        [self.requestDelegate requestDidFinishLoading:serviceResponseData request:self];
 	}
 }
 
